@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"time"
 
-	pb "github.com/mjkong/selfstudy/blockchain/protos"
+	pb "github.com/mjkong/selfstudy/blockchain/protos/block"
 )
 
 func NewBlock(blockNum uint64, prevHash []byte) *pb.Block {

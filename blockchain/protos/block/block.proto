@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package block;
 
+service BlockManager {
+  rpc NewBlock(BlockData) returns (Block) {}
+}
 
 message Block {
   BlockHeader header = 1;
