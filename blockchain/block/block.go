@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	pb "github.com/mjkong/selfstudy/blockchain/protos"
+	pb "github.com/mjkong/selfstudy/blockchain/protos/block"
 )
 
 type asn1Header struct {
