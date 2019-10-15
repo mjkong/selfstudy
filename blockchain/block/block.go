@@ -1,11 +1,18 @@
 package block
 
 import (
-	"crypto/sha256"
+	"encoding/asn1"
+	"log"
 	"time"
 
 	pb "github.com/mjkong/selfstudy/blockchain/protos"
 )
+
+type asn1Header struct {
+	Version      uint64
+	PreviousHash []byte
+	Hash         []byte
+}
 
 func NewBlock(blockNum uint64, prevHash []byte) *pb.Block {
 
@@ -21,17 +28,24 @@ func NewBlock(blockNum uint64, prevHash []byte) *pb.Block {
 
 }
 
-func (b *pb.Block) Hash() []byte {
+func Hash(b *pb.Block) []byte {
 
-	hash := sha256.Sum256(b.Bytes())
+	header := asn1Header{b.Header.Version, b.Header.PrevBlockHash, b.Header.Hash}
 
-	return hash
+	blockBytes, err := asn1.Marshal(header)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return blockBytes
 }
 
-func (b *pb.Block) Bytes() []byte {
+// 	hash := sha256.Sum256(b.Bytes())
 
-	[]byte blockBytes;
+// 	return hash
+// }
 
+// func (b *pb.Block) Bytes() []byte {
 
-
-}
+// 	b.Mashal(
+// }
