@@ -16,17 +16,10 @@ public class SampleTestResource implements TestResource {
         this.postService = postService;
     }
 
-    public String checkHealth(String value) {
-        return postService.test(value).getTestProp();
-    }
-
+    public String getValue(String value){return postService.test(value).getTestProp();}
 
     public TestObject post(TestObject testObject) {
         return postService.test(testObject.getTestProp());
     }
 
-    @Override
-    public String checkHealth() {
-      return null;
-    }
 }

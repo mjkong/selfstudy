@@ -1,10 +1,7 @@
 package org.mjkong.rest.api;
 
 import javax.inject.Singleton;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 import org.jvnet.hk2.annotations.Contract;
 
@@ -15,7 +12,8 @@ public interface TestResource {
 
   @GET
   @Produces("text/plain")
-  String checkHealth();
+  @Path("{value}")
+  String getValue(@PathParam("value") String value);
 
   @POST
   @Produces("application/json")

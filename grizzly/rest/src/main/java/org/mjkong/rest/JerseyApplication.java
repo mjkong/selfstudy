@@ -11,7 +11,7 @@ public class JerseyApplication extends ResourceConfig {
 
   public JerseyApplication() {
     log.info("setting up hk2");
-    packages("com.github.wakingrufus.microblog", "com.github.wakingrufus.microblog.jersey");
+    packages("org.mjkong.rest", "org.mjkong.rest.jersey");
 
     JacksonJaxbJsonProvider jacksonJaxbJsonProvider = new JacksonJaxbJsonProvider();
     jacksonJaxbJsonProvider.setMapper(new ObjectMapperFactory().buildObjectMapper());
