@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'org.example.rest.Main'
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.glassfish.jersey.core:jersey-common:$jerseyVersion"
+    compile "org.glassfish.jersey:jersey-bom:$jerseyVersion"
+    compile "org.glassfish.jersey.containers:jersey-container-grizzly2-http:$jerseyVersion"
+    compile "org.glassfish.jersey.inject:jersey-hk2:$jerseyVersion"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
