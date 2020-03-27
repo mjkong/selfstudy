@@ -11,7 +11,7 @@ public class JerseyApplication extends ResourceConfig {
 
   public JerseyApplication() {
     log.info("setting up hk2");
-    packages("org.mjkong.rest", "org.mjkong.rest.jersey");
+    packages("org.mjkong.rest", "org.mjkong.rest.api", "org.mjkong.rest.jersey");
 
     JacksonJaxbJsonProvider jacksonJaxbJsonProvider = new JacksonJaxbJsonProvider();
     jacksonJaxbJsonProvider.setMapper(new ObjectMapperFactory().buildObjectMapper());
@@ -29,5 +29,5 @@ public class JerseyApplication extends ResourceConfig {
             //
         }
     });
-}
+  }
 }

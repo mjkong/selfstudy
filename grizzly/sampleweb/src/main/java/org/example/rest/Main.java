@@ -6,10 +6,24 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Optional;
 
 public class Main {
+
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/myapp/";
+    public static final String BASE_URI;
+    public static final String protocol;
+    public static final Optional<String> host;
+    public static final String path;
+    public static final Optional<String> port;
+
+    static{
+        protocol = "http://";
+        host = Optional.ofNullable(System.getenv("HOSTNAME"));
+        port = Optional.ofNullable(System.getenv("PORT"));
+        path = "myapp";
+        BASE_URI = protocol + host.orElse("localhost") + ":" + port.orElse("8080") + "/" + path + "/";
+    }
 
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
