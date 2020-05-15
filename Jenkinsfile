@@ -1,5 +1,5 @@
 node{
-	state("Parameter check"){
+	stage("Parameter check"){
 		println "check"
 		println "2"
 	}
