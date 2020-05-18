@@ -2,6 +2,6 @@ properties([pipelineTriggers([githubPush()])])
 
 node{
 	stage("Parameter check"){
-		println "checks11"
+		println "checks12"
 	}
 }
